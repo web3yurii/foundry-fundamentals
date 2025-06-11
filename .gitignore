@@ -14,3 +14,12 @@ docs/
 .env
 
 notes.txt
+
+.DS_Store
+zkout/
+
+.idea
+broadcast
+.cache
+.gas-snapshot
+*.log

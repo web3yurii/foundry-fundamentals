@@ -25,17 +25,11 @@ contract HelperConfig is Script {
     }
 
     function getMainnetEthConfig() public pure returns (NetworkConfig memory) {
-        return
-            NetworkConfig({
-                priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
-            });
+        return NetworkConfig({priceFeed: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419});
     }
 
     function getSepoliaEthConfig() public pure returns (NetworkConfig memory) {
-        return
-            NetworkConfig({
-                priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306
-            });
+        return NetworkConfig({priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306});
     }
 
     uint8 public constant DECIMALS = 8;
@@ -48,10 +42,7 @@ contract HelperConfig is Script {
 
         vm.startBroadcast();
         // Deploy the mock price feed
-        MockV3Aggregator aggregator = new MockV3Aggregator(
-            DECIMALS,
-            INITIAL_PRICE
-        );
+        MockV3Aggregator aggregator = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
 
         vm.stopBroadcast();
         return NetworkConfig({priceFeed: address(aggregator)});
